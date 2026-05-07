@@ -1,38 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Photo Motion Website</title>
-  <style>
-    body{
-      background:#111;
-      color:white;
-      text-align:center;
-      font-family:Arial;
-      padding-top:50px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    img{
-      width:300px;
-      border-radius:20px;
-      animation: move 3s infinite alternate ease-in-out;
-    }
+<title>PicPhotoMoments</title>
 
-    @keyframes move{
-      from{
-        transform:translateY(0px) scale(1);
-      }
-      to{
-        transform:translateY(-20px) scale(1.05);
-      }
-    }
-  </style>
+<style>
+
+body{
+margin:0;
+padding:0;
+background:#0f0f0f;
+font-family:Arial,sans-serif;
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+.container{
+padding:40px 20px;
+}
+
+h1{
+font-size:40px;
+margin-bottom:20px;
+}
+
+p{
+font-size:18px;
+color:#cccccc;
+margin-bottom:30px;
+}
+
+img{
+width:320px;
+max-width:90%;
+border-radius:25px;
+box-shadow:0 0 25px rgba(255,255,255,0.2);
+animation:float 3s ease-in-out infinite alternate;
+}
+
+@keyframes float{
+from{
+transform:translateY(0px) scale(1);
+}
+to{
+transform:translateY(-20px) scale(1.05);
+}
+}
+
+.button{
+display:inline-block;
+margin-top:30px;
+padding:14px 30px;
+background:white;
+color:black;
+font-size:18px;
+font-weight:bold;
+border-radius:50px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.button:hover{
+transform:scale(1.05);
+}
+
+footer{
+margin-top:60px;
+padding:20px;
+font-size:14px;
+color:#888;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<h1>Photo Motion Website</h1>
+<div class="container">
 
-<img src="https://picsum.photos/400" alt="photo">
+<h1>PicPhotoMoments</h1>
+
+<p>Create Amazing Moving Photo Effects</p>
+
+<img src="https://picsum.photos/500" alt="Moving Photo">
+
+<br>
+
+<a href="#" class="button">Upload Photo</a>
+
+</div>
+
+<footer>
+© 2026 PicPhotoMoments. All Rights Reserved.
+</footer>
 
 </body>
 </html>
