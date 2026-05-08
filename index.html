@@ -1,102 +1,402 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>PicPhotoMoments</title>
+<title>PicPhotoMoment</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-body{
+*{
 margin:0;
 padding:0;
-background:#0f0f0f;
-font-family:Arial,sans-serif;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#0d0d0d;
 color:white;
-text-align:center;
 overflow-x:hidden;
 }
 
-.container{
-padding:40px 20px;
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.45);
+backdrop-filter:blur(10px);
+z-index:1000;
 }
 
-h1{
-font-size:40px;
-margin-bottom:20px;
+.logo{
+font-size:28px;
+font-weight:700;
+color:#fff;
 }
 
-p{
-font-size:18px;
-color:#cccccc;
-margin-bottom:30px;
-}
-
-img{
-width:320px;
-max-width:90%;
-border-radius:25px;
-box-shadow:0 0 25px rgba(255,255,255,0.2);
-animation:float 3s ease-in-out infinite alternate;
-}
-
-@keyframes float{
-from{
-transform:translateY(0px) scale(1);
-}
-to{
-transform:translateY(-20px) scale(1.05);
-}
-}
-
-.button{
-display:inline-block;
-margin-top:30px;
-padding:14px 30px;
-background:white;
-color:black;
-font-size:18px;
-font-weight:bold;
-border-radius:50px;
+nav a{
 text-decoration:none;
+color:white;
+margin-left:25px;
+font-size:15px;
 transition:0.3s;
 }
 
-.button:hover{
+nav a:hover{
+color:#d4af37;
+}
+
+.hero{
+height:100vh;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+overflow:hidden;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.55);
+z-index:1;
+}
+
+.slider{
+position:absolute;
+width:100%;
+height:100%;
+background-size:cover;
+background-position:center;
+animation:slider 20s infinite;
+}
+
+@keyframes slider{
+0%{background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop');}
+25%{background-image:url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1600&auto=format&fit=crop');}
+50%{background-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1600&auto=format&fit=crop');}
+75%{background-image:url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1600&auto=format&fit=crop');}
+100%{background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop');}
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+padding:20px;
+}
+
+.hero h1{
+font-size:65px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:20px;
+color:#ddd;
+margin-bottom:35px;
+}
+
+.btn{
+display:inline-block;
+padding:14px 35px;
+background:#d4af37;
+color:black;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.06);
+}
+
+section{
+padding:100px 7%;
+}
+
+.section-title{
+text-align:center;
+font-size:42px;
+margin-bottom:50px;
+}
+
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:center;
+}
+
+.about img{
+width:100%;
+border-radius:25px;
+}
+
+.about-text h2{
+font-size:42px;
+margin-bottom:20px;
+}
+
+.about-text p{
+line-height:1.9;
+color:#ccc;
+}
+
+.categories{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.card{
+background:#171717;
+padding:40px 20px;
+text-align:center;
+border-radius:20px;
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+background:#1f1f1f;
+}
+
+.card h3{
+margin-top:15px;
+font-size:24px;
+}
+
+.gallery-buttons{
+text-align:center;
+margin-bottom:35px;
+}
+
+.gallery-buttons button{
+padding:12px 24px;
+border:none;
+margin:10px;
+border-radius:30px;
+background:#1f1f1f;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+.gallery-buttons button:hover{
+background:#d4af37;
+color:black;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+height:340px;
+object-fit:cover;
+border-radius:20px;
+transition:0.4s;
+}
+
+.gallery img:hover{
 transform:scale(1.05);
 }
 
-footer{
-margin-top:60px;
-padding:20px;
-font-size:14px;
-color:#888;
+.video-section{
+text-align:center;
+background:#151515;
 }
 
+.video-box{
+max-width:900px;
+margin:auto;
+overflow:hidden;
+border-radius:25px;
+}
+
+.video-box video{
+width:100%;
+}
+
+.clients{
+background:#111;
+}
+
+.client-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.client-card{
+background:#1c1c1c;
+padding:30px;
+border-radius:20px;
+}
+
+.client-card h3{
+margin-bottom:12px;
+}
+
+.client-card p{
+color:#bbb;
+line-height:1.8;
+}
+
+.socials{
+text-align:center;
+margin-top:30px;
+}
+
+.socials a{
+display:inline-block;
+margin:10px;
+padding:14px 25px;
+background:#d4af37;
+color:black;
+text-decoration:none;
+border-radius:40px;
+font-weight:600;
+}
+
+footer{
+background:black;
+padding:30px;
+text-align:center;
+color:#777;
+font-size:14px;
+}
+
+@media(max-width:900px){
+.hero h1{
+font-size:42px;
+}
+
+.about{
+grid-template-columns:1fr;
+}
+
+nav{
+display:none;
+}
+}
 </style>
-
 </head>
-
 <body>
 
-<div class="container">
+<header>
+<div class="logo">PicPhotoMoment</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#clients">Clients</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
 
-<h1>PicPhotoMoments</h1>
+<section class="hero" id="home">
+<div class="slider"></div>
+<div class="hero-content">
+<h1>Make A Wonderful Story For Your Wedding</h1>
+<p>Luxury Wedding Films & Cinematic Photography</p>
+<a href="#portfolio" class="btn">View Portfolio</a>
+</div>
+</section>
 
-<p>Create Amazing Moving Photo Effects</p>
+<section class="about" id="about">
+<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1400&auto=format&fit=crop">
+<div class="about-text">
+<h2>Welcome To PicPhotoMoment</h2>
+<p>
+We create cinematic wedding stories with luxury photography, emotional films, creative storytelling and unforgettable memories. Our vision is to capture every emotion naturally and turn your special moments into timeless memories.
+</p>
+</div>
+</section>
 
-<img src="https://picsum.photos/500" alt="Moving Photo">
+<section id="categories">
+<h2 class="section-title">Our Categories</h2>
+<div class="categories">
+<div class="card"><h3>Wedding</h3></div>
+<div class="card"><h3>Pre-Wedding</h3></div>
+<div class="card"><h3>Engagement</h3></div>
+<div class="card"><h3>Birthday</h3></div>
+<div class="card"><h3>Corporate</h3></div>
+</div>
+</section>
 
-<br>
-
-<a href="#" class="button">Upload Photo</a>
-
+<section id="portfolio">
+<h2 class="section-title">Portfolio</h2>
+<div class="gallery-buttons">
+<button>All</button>
+<button>Wedding</button>
+<button>Pre-Wedding</button>
+<button>Engagement</button>
+<button>Birthday</button>
+<button>Corporate</button>
 </div>
 
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1513278974582-3e1b4a4fa21d?q=80&w=1200&auto=format&fit=crop">
+</div>
+</section>
+
+<section class="video-section">
+<h2 class="section-title">Highlight Reel</h2>
+<div class="video-box">
+<video controls>
+<source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+</video>
+</div>
+</section>
+
+<section class="clients" id="clients">
+<h2 class="section-title">Our Clients</h2>
+<div class="client-grid">
+<div class="client-card">
+<h3>Destination Wedding</h3>
+<p>Luxury cinematic coverage for destination weddings across India.</p>
+</div>
+<div class="client-card">
+<h3>Celebrity Events</h3>
+<p>Creative storytelling and premium visual production for grand events.</p>
+</div>
+<div class="client-card">
+<h3>Corporate Shoots</h3>
+<p>Professional branding visuals, corporate films and premium event coverage.</p>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<h2 class="section-title">Connect With Us</h2>
+<div class="socials">
+<a href="https://instagram.com/">Instagram</a>
+<a href="https://facebook.com/">Facebook</a>
+<a href="https://wa.me/911234567890">WhatsApp</a>
+</div>
+</section>
+
 <footer>
-© 2026 PicPhotoMoments. All Rights Reserved.
+© 2026 PicPhotoMoment | Premium Cinematic Wedding Photography
 </footer>
 
 </body>
