@@ -54,13 +54,35 @@
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; cursor: pointer; transition: 0.5s; }
         .gallery-item img:hover { transform: scale(1.1); }
 
+        /* --- NEW ABOUT SECTION STYLES --- */
+        .about-section {
+            padding: 80px 5%;
+            background-color: #111; /* थोड़ा अलग बैकग्राउंड कलर */
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+        .about-container { max-width: 1000px; margin: auto; }
+        .about-section h2 {
+            font-size: 32px; margin-bottom: 30px; color: #f39c12;
+            text-transform: uppercase; border-bottom: 2px solid #f39c12; display: inline-block;
+        }
+        .about-text { font-size: 18px; color: #ccc; line-height: 1.8; margin-bottom: 20px; text-align: justify; }
+        .about-highlights { display: flex; justify-content: center; gap: 25px; margin-top: 50px; flex-wrap: wrap; }
+        .highlight-box {
+            background: #1a1a1a; padding: 30px 20px; border-radius: 10px; flex: 1; min-width: 280px;
+            border-top: 3px solid #f39c12; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        .highlight-box:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(243, 156, 18, 0.2); }
+        .highlight-box h3 { color: #fff; margin-bottom: 15px; font-size: 22px; }
+        .highlight-box p { color: #aaa; font-size: 15px; line-height: 1.6; }
+
         /* Lightbox */
         #lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; justify-content: center; align-items: center; }
         #lightbox img { max-width: 90%; max-height: 80%; border: 2px solid #fff; }
         .close-btn { position: absolute; top: 30px; right: 50px; font-size: 40px; color: #fff; cursor: pointer; }
 
         /* Contact Footer */
-        footer { background: #111; padding: 50px 5%; text-align: center; border-top: 1px solid #333; }
+        footer { background: #0b0b0b; padding: 50px 5%; text-align: center; border-top: 1px solid #333; }
         .contact-info { margin-bottom: 30px; }
         .contact-info p { font-size: 18px; color: #f39c12; }
         .social-btns { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
@@ -71,6 +93,7 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 32px; }
             nav ul { display: none; } 
+            .about-text { text-align: center; }
         }
     </style>
 </head>
@@ -81,9 +104,8 @@
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#">Client</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -111,24 +133,48 @@
             <div class="gallery-item wedding all">
                 <img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wedding" onclick="openLight(this.src)">
             </div>
-            
             <div class="gallery-item prewedding all">
                 <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pre-Wedding" onclick="openLight(this.src)">
             </div>
-
             <div class="gallery-item engagement all">
                 <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Engagement Rings" onclick="openLight(this.src)">
             </div>
-
             <div class="gallery-item birthday all">
                 <img src="https://images.pexels.com/photos/1543793/pexels-photo-1543793.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Birthday Party" onclick="openLight(this.src)">
             </div>
-
             <div class="gallery-item corporate all">
                 <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Corporate Event" onclick="openLight(this.src)">
             </div>
         </div>
     </main>
+
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <h2>The Story Behind PicPhotoMoments</h2>
+            
+            <p class="about-text">
+                Welcome to <strong>PicPhotoMoments</strong>, where we believe that every fleeting moment holds a timeless story. We don't just capture photographs; we freeze emotions, joy, and the unspoken bonds that make your special days unforgettable. Founded with a deep passion for visual storytelling, we specialize in luxury wedding films, cinematic photography, and premium event coverage.
+            </p>
+            <p class="about-text">
+                Whether it is the nervous excitement of a pre-wedding shoot, the grand celebrations of a wedding day, or the professional milestones of a corporate event, our lens is always focused on the authentic essence of the moment. We blend seamlessly into your celebrations, ensuring that the natural magic of your day is captured without interruption. Every frame we shoot is carefully crafted to create a beautiful memory that you will cherish for generations.
+            </p>
+            
+            <div class="about-highlights">
+                <div class="highlight-box">
+                    <h3>🎬 Cinematic Vision</h3>
+                    <p>We use state-of-the-art equipment and a movie-like approach to make your wedding films look like a grand cinematic experience.</p>
+                </div>
+                <div class="highlight-box">
+                    <h3>❤️ Candid Emotions</h3>
+                    <p>From a subtle smile to a tear of joy, we capture the raw, natural moments and unseen details that make your story unique.</p>
+                </div>
+                <div class="highlight-box">
+                    <h3>✨ Premium Editing</h3>
+                    <p>Our post-production magic ensures that every single frame is perfectly color-graded to give you a luxury, high-end final product.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <div id="lightbox">
         <span class="close-btn" onclick="closeLight()">&times;</span>
