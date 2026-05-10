@@ -101,62 +101,20 @@
         </div>
     </main>
 
-    <footer>
-        <p>Direct Number: <strong>8826540642</strong> | Email: <strong>picphotomoments@gmail.com</strong></p>
+        <footer>
+        <div style="margin-bottom: 30px;">
+            <h2 style="color: #f39c12; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px;">Contact PicPhotoMoments</h2>
+            <p style="font-size: 18px; margin-bottom: 5px;">Direct Number: <strong>8826540642</strong></p>
+            <p style="font-size: 16px; color: #bbb;">Email: <strong>picphotomoments@gmail.com</strong></p>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 25px;">
+            <a href="https://wa.me/918826540642" target="_blank" style="text-decoration: none; color: #fff; background: #25D366; padding: 12px 25px; border-radius: 50px; font-weight: bold; transition: 0.3s;">WhatsApp</a>
+            
+            <a href="https://www.instagram.com/picphotomoments" target="_blank" style="text-decoration: none; color: #fff; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); padding: 12px 25px; border-radius: 50px; font-weight: bold; transition: 0.3s;">Instagram</a>
+            
+            <a href="https://www.facebook.com/picphotomoments" target="_blank" style="text-decoration: none; color: #fff; background: #1877F2; padding: 12px 25px; border-radius: 50px; font-weight: bold; transition: 0.3s;">Facebook</a>
+        </div>
+
+        <p style="margin-top: 40px; color: #555; font-size: 14px;">© 2026 PicPhotoMoments | Luxury Wedding Films & Photography</p>
     </footer>
-
-    <script>
-        const catBtns = document.querySelectorAll('#category-filters .filter-btn');
-        const typeBtns = document.querySelectorAll('#type-filters .filter-btn');
-        const subFilterBar = document.getElementById('type-filters');
-        const items = document.querySelectorAll('.gallery-item');
-
-        let currentCat = 'all';
-        let currentType = 'all-type';
-
-        // Pehle baar mein sab dikhane ke liye
-        window.onload = () => filterGallery();
-
-        function filterGallery() {
-            items.forEach(item => {
-                const matchCat = currentCat === 'all' || item.classList.contains(currentCat);
-                const matchType = currentType === 'all-type' || item.classList.contains(currentType);
-                
-                if(matchCat && matchType) {
-                    item.style.display = "block";
-                } else {
-                    item.style.display = "none";
-                }
-            });
-        }
-
-        catBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelector('#category-filters .active').classList.remove('active');
-                btn.classList.add('active');
-                currentCat = btn.getAttribute('data-filter');
-
-                // Agar 'All' ke alawa kuch click kiya toh 'Photos/Videos' wala option dikhao
-                if(currentCat !== 'all') {
-                    subFilterBar.style.display = "flex";
-                } else {
-                    subFilterBar.style.display = "none";
-                    currentType = 'all-type';
-                    typeBtns.forEach(b => b.classList.remove('active'));
-                    typeBtns[0].classList.add('active');
-                }
-                filterGallery();
-            });
-        });
-
-        typeBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelector('#type-filters .active').classList.remove('active');
-                btn.classList.add('active');
-                currentType = btn.getAttribute('data-type');
-                filterGallery();
-            });
-        });
-    </script>
-</body>
-</html>
