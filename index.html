@@ -8,7 +8,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
         body { background-color: #0b0b0b; color: #fff; overflow-x: hidden; }
 
-        /* Navigation */
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 5%; background: rgba(0, 0, 0, 0.98);
@@ -16,20 +15,17 @@
         }
         .logo { font-size: 22px; font-weight: bold; color: #f39c12; text-transform: uppercase; }
         nav ul { display: flex; list-style: none; gap: 20px; }
-        nav ul li a { text-decoration: none; color: #fff; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+        nav ul li a { text-decoration: none; color: #fff; font-size: 13px; text-transform: uppercase; }
 
-        /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero-bg.jpg');
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero-bg.jpg'); 
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
         }
         .hero h1 { font-size: clamp(30px, 8vw, 60px); color: #fff; text-transform: uppercase; margin-bottom: 20px; }
-        .hero-btn { padding: 15px 40px; background: #f39c12; color: #000; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; }
-        .hero-btn:hover { background: #fff; }
+        .hero-btn { padding: 15px 40px; background: #f39c12; color: #000; text-decoration: none; border-radius: 50px; font-weight: bold; }
 
-        /* Storytelling About Sections */
         .section-padding { padding: 100px 10%; }
         .story-row { display: flex; align-items: center; gap: 50px; margin-bottom: 80px; flex-wrap: wrap; }
         .story-row:nth-child(even) { flex-direction: row-reverse; }
@@ -39,9 +35,10 @@
         .story-content h2 { color: #f39c12; font-size: 30px; margin-bottom: 20px; text-transform: uppercase; }
         .story-content p { color: #ccc; line-height: 1.8; font-size: 17px; }
 
-        /* Portfolio */
         .portfolio-section { padding: 80px 5%; background: #0f0f0f; text-align: center; }
-        .filters { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
+        .filters, .sub-filters { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+        .sub-filters { display: none; margin-bottom: 40px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; }
+        
         .filter-btn {
             background: #1a1a1a; color: #fff; border: 1px solid #333; padding: 12px 22px;
             cursor: pointer; border-radius: 5px; transition: 0.3s; font-weight: bold;
@@ -50,15 +47,10 @@
 
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 15px; }
         .gallery-item { border-radius: 10px; overflow: hidden; height: 350px; background: #111; position: relative; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .gallery-item:hover img { transform: scale(1.05); }
+        .gallery-item img, .gallery-item iframe { width: 100%; height: 100%; object-fit: cover; border: none; }
 
-        /* Footer & Contact */
-        footer { padding: 80px 5%; background: #000; text-align: center; border-top: 1px solid #222; }
-        .footer-info { margin-bottom: 30px; }
-        .footer-info p { font-size: 18px; color: #bbb; margin: 10px 0; }
-        .social-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .social-btn { text-decoration: none; color: #fff; padding: 15px 30px; border-radius: 50px; font-weight: bold; transition: 0.3s; min-width: 150px; }
+        footer { padding: 60px 5%; background: #000; text-align: center; border-top: 1px solid #222; }
+        .social-btn { text-decoration: none; color: #fff; padding: 15px 30px; border-radius: 50px; font-weight: bold; display: inline-block; margin: 8px; }
 
         @media (max-width: 768px) { .story-row { text-align: center; } header nav { display: none; } }
     </style>
@@ -83,39 +75,25 @@
     </section>
 
     <section id="about" class="section-padding">
-        <!-- Wedding -->
         <div class="story-row">
             <div class="story-img"><img src="wedding1.jpg" onerror="this.src='https://via.placeholder.com/600x400?text=Wedding+Cinema'"></div>
             <div class="story-content">
                 <h2>Wedding Cinema</h2>
-                <p>We don't just record weddings; we preserve the soul of your celebration. From the silent tears of parents to the joyful laughter of friends, we document every heartbeat that makes your story unique.</p>
+                <p>We don't just record weddings; we preserve the soul of your celebration. Every heartbeat and laughter is documented with cinematic perfection.</p>
             </div>
         </div>
-
-        <!-- Pre-Wedding -->
         <div class="story-row">
             <div class="story-img"><img src="pre1.jpg" onerror="this.src='https://via.placeholder.com/600x400?text=Pre-Wedding+Story'"></div>
             <div class="story-content">
                 <h2>Pre-Wedding Stories</h2>
-                <p>Your journey before 'I Do'. We create a dream-like atmosphere where your natural chemistry shines. It's not just a photoshoot; it's an experience that captures your love in breathtaking frames.</p>
+                <p>Your journey before 'I Do'. We focus on your natural chemistry and create breathtaking frames that capture your love story.</p>
             </div>
         </div>
-
-        <!-- Engagement -->
         <div class="story-row">
-            <div class="story-img"><img src="eng1.jpg" onerror="this.src='https://via.placeholder.com/600x400?text=Ring+Ceremony'"></div>
+            <div class="story-img"><img src="eng1.jpg" onerror="this.src='https://via.placeholder.com/600x400?text=Engagement+Story'"></div>
             <div class="story-content">
-                <h2>Engagement & Ring Ceremony</h2>
-                <p>The first step towards your forever. We capture the elegance of the ring exchange and the promise of a new life together with cinematic precision and grace.</p>
-            </div>
-        </div>
-
-        <!-- Haldi & Mehndi -->
-        <div class="story-row">
-            <div class="story-img"><img src="haldi1.jpg" onerror="this.src='https://via.placeholder.com/600x400?text=Haldi+Mehndi'"></div>
-            <div class="story-content">
-                <h2>Haldi & Mehndi Traditions</h2>
-                <p>A blast of colors and raw energy. We focus on the vibrant yellow hues, intricate henna patterns, and the traditional joy that brings families together.</p>
+                <h2>Engagement Ceremony</h2>
+                <p>Capturing the elegance of your first official step together. We document the promise of a new life with cinematic grace.</p>
             </div>
         </div>
     </section>
@@ -124,7 +102,7 @@
         <h2 style="color:#f39c12; margin-bottom: 40px; font-size: 36px;">The Visual Diary</h2>
         
         <div class="filters" id="cat-filters">
-            <button class="filter-btn active" data-filter="all">All Masterpieces</button>
+            <button class="filter-btn active" data-filter="all">All Work</button>
             <button class="filter-btn" data-filter="wedding">Wedding</button>
             <button class="filter-btn" data-filter="pre">Pre-Wedding</button>
             <button class="filter-btn" data-filter="eng">Engagement</button>
@@ -133,23 +111,26 @@
             <button class="filter-btn" data-filter="corp">Corporate</button>
         </div>
 
-        <div class="gallery-grid" id="gallery">
-            <!-- JavaScript loads up to 1000 images per category -->
+        <div class="sub-filters" id="type-filters">
+            <button class="filter-btn active" data-type="all-t">Everything</button>
+            <button class="filter-btn" data-type="photo">Photos Only</button>
+            <button class="filter-btn" data-type="video">Videos Only</button>
         </div>
+
+        <div class="gallery-grid" id="gallery">
+            </div>
     </section>
 
     <footer id="contact">
-        <div class="footer-info">
-            <h2 style="color:#f39c12; margin-bottom: 15px;">Let's Create Magic Together</h2>
-            <p>Direct Call: <strong>8826540642</strong></p>
-            <p>Email: <strong>picphotomoments@gmail.com</strong></p>
+        <div style="margin-bottom:30px;">
+            <p>Email: picphotomoments@gmail.com</p>
+            <p>Call: 8826540642</p>
         </div>
-        
         <div class="social-links">
-            <a href="tel:+918826540642" class="social-btn" style="background:#f39c12; color:#000;">📞 CALL NOW</a>
-            <a href="https://wa.me/918826540642" target="_blank" class="social-btn" style="background:#25D366;">WHATSAPP</a>
-            <a href="https://www.instagram.com/picphotomoments" target="_blank" class="social-btn" style="background:#E1306C;">INSTAGRAM</a>
-            <a href="https://www.facebook.com/share/1Cr6R4dBXg/" target="_blank" class="social-btn" style="background:#1877F2;">FACEBOOK</a>
+            <a href="tel:+918826540642" class="social-btn" style="background:#f39c12; color:#000;">📞 Call</a>
+            <a href="https://wa.me/918826540642" target="_blank" class="social-btn" style="background:#25D366;">WhatsApp</a>
+            <a href="https://www.instagram.com/picphotomoments" target="_blank" class="social-btn" style="background:#E1306C;">Instagram</a>
+            <a href="https://www.facebook.com/share/1Cr6R4dBXg/" target="_blank" class="social-btn" style="background:#1877F2;">Facebook</a>
         </div>
     </footer>
 
@@ -157,11 +138,18 @@
         const gallery = document.getElementById('gallery');
         const categories = ['wedding', 'pre', 'eng', 'haldi', 'meh', 'corp'];
         
+        // --- YAHAN APNI YOUTUBE VIDEO ID DALEIN ---
+        const videos = [
+            { id: "AbCdEf12345", cat: "wedding" }, // Example
+            { id: "Xyz98765432", cat: "pre" }     // Example
+        ];
+
         function autoLoad() {
+            // Load Photos (Up to 1000)
             categories.forEach(cat => {
                 for (let i = 1; i <= 1000; i++) {
                     const item = document.createElement('div');
-                    item.className = `gallery-item ${cat}`;
+                    item.className = `gallery-item ${cat} photo`;
                     const img = document.createElement('img');
                     img.src = `${cat}${i}.jpg`;
                     img.loading = "lazy";
@@ -170,20 +158,46 @@
                     gallery.appendChild(item);
                 }
             });
+            // Load Videos
+            videos.forEach(v => {
+                const item = document.createElement('div');
+                item.className = `gallery-item ${v.cat} video`;
+                item.innerHTML = `<iframe src="https://www.youtube.com/embed/${v.id}" allowfullscreen></iframe>`;
+                gallery.appendChild(item);
+            });
         }
         autoLoad();
 
-        const btns = document.querySelectorAll('.filter-btn');
-        btns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelector('.filter-btn.active').classList.remove('active');
-                btn.classList.add('active');
-                const f = btn.dataset.filter;
-                document.querySelectorAll('.gallery-item').forEach(item => {
-                    item.style.display = (f === 'all' || item.classList.contains(f)) ? "block" : "none";
-                });
+        const catBtns = document.querySelectorAll('#cat-filters .filter-btn');
+        const typeBtns = document.querySelectorAll('#type-filters .filter-btn');
+        const subF = document.getElementById('type-filters');
+
+        function filter() {
+            const activeCat = document.querySelector('#cat-filters .active').dataset.filter;
+            const activeType = document.querySelector('#type-filters .active').dataset.type;
+            
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                const catMatch = activeCat === 'all' || item.classList.contains(activeCat);
+                const typeMatch = activeType === 'all-t' || 
+                                 (activeType === 'photo' && item.classList.contains('photo')) || 
+                                 (activeType === 'video' && item.classList.contains('video'));
+                
+                item.style.display = (catMatch && typeMatch) ? "block" : "none";
             });
-        });
+        }
+
+        catBtns.forEach(btn => btn.addEventListener('click', () => {
+            document.querySelector('#cat-filters .active').classList.remove('active');
+            btn.classList.add('active');
+            subF.style.display = (btn.dataset.filter === 'all') ? "none" : "flex";
+            filter();
+        }));
+
+        typeBtns.forEach(btn => btn.addEventListener('click', () => {
+            document.querySelector('#type-filters .active').classList.remove('active');
+            btn.classList.add('active');
+            filter();
+        }));
     </script>
 </body>
 </html>
