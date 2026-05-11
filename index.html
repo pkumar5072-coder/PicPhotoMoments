@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PicPhotoMoments | Premium Cinema & Photography</title>
+    <title>PicPhotoMoments | Fast & Premium Portfolio</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
-        body { background-color: #0b0b0b; color: #fff; overflow-x: hidden; }
+        body { background-color: #0b0b0b; color: #fff; }
 
         header {
             display: flex; justify-content: space-between; align-items: center;
@@ -14,8 +14,6 @@
             position: fixed; width: 100%; top: 0; z-index: 2000; border-bottom: 1px solid #222;
         }
         .logo { font-size: 22px; font-weight: bold; color: #f39c12; text-transform: uppercase; }
-        nav ul { display: flex; list-style: none; gap: 20px; }
-        nav ul li a { text-decoration: none; color: #fff; font-size: 13px; text-transform: uppercase; }
 
         .hero {
             height: 100vh;
@@ -23,181 +21,143 @@
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
         }
-        .hero h1 { font-size: clamp(30px, 8vw, 60px); color: #fff; text-transform: uppercase; margin-bottom: 20px; }
-        .hero-btn { padding: 15px 40px; background: #f39c12; color: #000; text-decoration: none; border-radius: 50px; font-weight: bold; }
+        .hero h1 { font-size: 50px; color: #fff; text-transform: uppercase; margin-bottom: 20px; }
 
-        .section-padding { padding: 100px 10%; }
-        .story-row { display: flex; align-items: center; gap: 50px; margin-bottom: 80px; flex-wrap: wrap; }
-        .story-row:nth-child(even) { flex-direction: row-reverse; }
-        .story-img { flex: 1; min-width: 320px; height: 400px; border-radius: 15px; overflow: hidden; border: 1px solid #333; }
-        .story-img img { width: 100%; height: 100%; object-fit: cover; }
-        .story-content { flex: 1; min-width: 320px; }
-        .story-content h2 { color: #f39c12; font-size: 30px; margin-bottom: 20px; text-transform: uppercase; }
-        .story-content p { color: #ccc; line-height: 1.8; font-size: 17px; }
-
-        .portfolio-section { padding: 80px 5%; background: #0f0f0f; text-align: center; }
+        .portfolio-section { padding: 100px 5% 50px; text-align: center; }
         .filters, .sub-filters { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
-        .sub-filters { display: none; margin-bottom: 40px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; }
-        
+        .sub-filters { display: none; margin-bottom: 40px; }
+
         .filter-btn {
             background: #1a1a1a; color: #fff; border: 1px solid #333; padding: 12px 22px;
             cursor: pointer; border-radius: 5px; transition: 0.3s; font-weight: bold;
         }
         .filter-btn.active { background: #f39c12; color: #000; border-color: #f39c12; }
 
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 15px; }
-        .gallery-item { border-radius: 10px; overflow: hidden; height: 350px; background: #111; position: relative; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 15px; min-height: 200px; }
+        .gallery-item { border-radius: 10px; overflow: hidden; height: 350px; background: #111; animation: fadeIn 0.5s ease-in; }
         .gallery-item img, .gallery-item iframe { width: 100%; height: 100%; object-fit: cover; border: none; }
 
-        footer { padding: 60px 5%; background: #000; text-align: center; border-top: 1px solid #222; }
-        .social-btn { text-decoration: none; color: #fff; padding: 15px 30px; border-radius: 50px; font-weight: bold; display: inline-block; margin: 8px; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        @media (max-width: 768px) { .story-row { text-align: center; } header nav { display: none; } }
+        footer { padding: 60px 5%; background: #000; text-align: center; border-top: 1px solid #222; }
+        .social-btn { text-decoration: none; color: #fff; padding: 12px 25px; border-radius: 50px; font-weight: bold; display: inline-block; margin: 8px; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo">PicPhotoMoments</div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">Our Stories</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
     </header>
 
     <section id="home" class="hero">
         <h1>Make a Wonderful Story for Your Wedding</h1>
-        <a href="#portfolio" class="hero-btn">Explore The Visual Diary</a>
     </section>
 
-    <section id="about" class="section-padding">
-        <div class="story-row">
-            <div class="story-img"><img src="wedding1.jpg" onerror="this.src='https://via.placeholder.com/600x400?text=Wedding+Cinema'"></div>
-            <div class="story-content">
-                <h2>Wedding Cinema</h2>
-                <p>We don't just record weddings; we preserve the soul of your celebration. Every heartbeat and laughter is documented with cinematic perfection.</p>
-            </div>
-        </div>
-        <div class="story-row">
-            <div class="story-img"><img src="pre1.jpg" onerror="this.src='https://via.placeholder.com/600x400?text=Pre-Wedding+Story'"></div>
-            <div class="story-content">
-                <h2>Pre-Wedding Stories</h2>
-                <p>Your journey before 'I Do'. We focus on your natural chemistry and create breathtaking frames that capture your love story.</p>
-            </div>
-        </div>
-        <div class="story-row">
-            <div class="story-img"><img src="eng1.jpg" onerror="this.src='https://via.placeholder.com/600x400?text=Engagement+Story'"></div>
-            <div class="story-content">
-                <h2>Engagement Ceremony</h2>
-                <p>Capturing the elegance of your first official step together. We document the promise of a new life with cinematic grace.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio" class="portfolio-section">
-        <h2 style="color:#f39c12; margin-bottom: 40px; font-size: 36px;">The Visual Diary</h2>
+    <section class="portfolio-section">
+        <h2 style="color:#f39c12; margin-bottom: 30px;">The Visual Diary</h2>
         
-        <div class="filters" id="cat-filters">
-            <button class="filter-btn active" data-filter="all">All Work</button>
-            <button class="filter-btn" data-filter="wedding">Wedding</button>
-            <button class="filter-btn" data-filter="pre">Pre-Wedding</button>
-            <button class="filter-btn" data-filter="eng">Engagement</button>
-            <button class="filter-btn" data-filter="haldi">Haldi</button>
-            <button class="filter-btn" data-filter="meh">Mehndi</button>
-            <button class="filter-btn" data-filter="corp">Corporate</button>
+        <div class="filters">
+            <button class="filter-btn active" onclick="loadGallery('all')">All Work</button>
+            <button class="filter-btn" onclick="loadGallery('wedding')">Wedding</button>
+            <button class="filter-btn" onclick="loadGallery('pre')">Pre-Wedding</button>
+            <button class="filter-btn" onclick="loadGallery('eng')">Engagement</button>
+            <button class="filter-btn" onclick="loadGallery('haldi')">Haldi</button>
+            <button class="filter-btn" onclick="loadGallery('meh')">Mehndi</button>
+            <button class="filter-btn" onclick="loadGallery('corp')">Corporate</button>
         </div>
 
-        <div class="sub-filters" id="type-filters">
-            <button class="filter-btn active" data-type="all-t">Everything</button>
-            <button class="filter-btn" data-type="photo">Photos Only</button>
-            <button class="filter-btn" data-type="video">Videos Only</button>
+        <div class="sub-filters" id="type-box">
+            <button class="filter-btn active" id="btn-all-t">Everything</button>
+            <button class="filter-btn" id="btn-photo">Photos Only</button>
+            <button class="filter-btn" id="btn-video">Videos Only</button>
         </div>
 
         <div class="gallery-grid" id="gallery">
             </div>
     </section>
 
-    <footer id="contact">
-        <div style="margin-bottom:30px;">
-            <p>Email: picphotomoments@gmail.com</p>
-            <p>Call: 8826540642</p>
-        </div>
+    <footer>
         <div class="social-links">
             <a href="tel:+918826540642" class="social-btn" style="background:#f39c12; color:#000;">📞 Call</a>
             <a href="https://wa.me/918826540642" target="_blank" class="social-btn" style="background:#25D366;">WhatsApp</a>
             <a href="https://www.instagram.com/picphotomoments" target="_blank" class="social-btn" style="background:#E1306C;">Instagram</a>
-            <a href="https://www.facebook.com/share/1Cr6R4dBXg/" target="_blank" class="social-btn" style="background:#1877F2;">Facebook</a>
         </div>
     </footer>
 
     <script>
-        const gallery = document.getElementById('gallery');
-        const categories = ['wedding', 'pre', 'eng', 'haldi', 'meh', 'corp'];
-        
-        // --- YAHAN APNI YOUTUBE VIDEO ID DALEIN ---
+        // --- प्रदीप जी, यहाँ आपको बस संख्या लिखनी है कि कितनी फोटो हैं ---
+        // उदाहरण: अगर Wedding की ५ फोटो हैं, तो यहाँ ५ लिखें। 
+        const count = {
+            wedding: 5,  // आपकी जितनी फोटो हैं बस वो नंबर लिख दें
+            pre: 4,      
+            eng: 2,
+            haldi: 3,
+            meh: 2,
+            corp: 1
+        };
+
+        // YouTube Videos की लिस्ट
         const videos = [
-            { id: "AbCdEf12345", cat: "wedding" }, // Example
-            { id: "Xyz98765432", cat: "pre" }     // Example
+            { id: "AbCdEf123", cat: "wedding" }
         ];
 
-        function autoLoad() {
-            // Load Photos (Up to 1000)
-            categories.forEach(cat => {
-                for (let i = 1; i <= 1000; i++) {
-                    const item = document.createElement('div');
-                    item.className = `gallery-item ${cat} photo`;
-                    const img = document.createElement('img');
-                    img.src = `${cat}${i}.jpg`;
-                    img.loading = "lazy";
-                    img.onerror = () => item.remove(); 
-                    item.appendChild(img);
-                    gallery.appendChild(item);
-                }
-            });
-            // Load Videos
-            videos.forEach(v => {
-                const item = document.createElement('div');
-                item.className = `gallery-item ${v.cat} video`;
-                item.innerHTML = `<iframe src="https://www.youtube.com/embed/${v.id}" allowfullscreen></iframe>`;
-                gallery.appendChild(item);
-            });
-        }
-        autoLoad();
+        const gallery = document.getElementById('gallery');
+        const typeBox = document.getElementById('type-box');
 
-        const catBtns = document.querySelectorAll('#cat-filters .filter-btn');
-        const typeBtns = document.querySelectorAll('#type-filters .filter-btn');
-        const subF = document.getElementById('type-filters');
-
-        function filter() {
-            const activeCat = document.querySelector('#cat-filters .active').dataset.filter;
-            const activeType = document.querySelector('#type-filters .active').dataset.type;
+        function loadGallery(category, type = 'all-t') {
+            gallery.innerHTML = ''; // पुराना कचरा साफ़
             
-            document.querySelectorAll('.gallery-item').forEach(item => {
-                const catMatch = activeCat === 'all' || item.classList.contains(activeCat);
-                const typeMatch = activeType === 'all-t' || 
-                                 (activeType === 'photo' && item.classList.contains('photo')) || 
-                                 (activeType === 'video' && item.classList.contains('video'));
-                
-                item.style.display = (catMatch && typeMatch) ? "block" : "none";
+            // Buttons Active State
+            document.querySelectorAll('.filters .filter-btn').forEach(b => {
+                b.classList.toggle('active', b.innerText.toLowerCase().includes(category));
             });
+
+            if(category === 'all') {
+                typeBox.style.display = 'none';
+                Object.keys(count).forEach(c => renderItems(c, 'all-t'));
+            } else {
+                typeBox.style.display = 'flex';
+                renderItems(category, type);
+            }
         }
 
-        catBtns.forEach(btn => btn.addEventListener('click', () => {
-            document.querySelector('#cat-filters .active').classList.remove('active');
-            btn.classList.add('active');
-            subF.style.display = (btn.dataset.filter === 'all') ? "none" : "flex";
-            filter();
-        }));
+        function renderItems(cat, type) {
+            // Photos लोड करना
+            if(type === 'all-t' || type === 'photo') {
+                for(let i=1; i <= count[cat]; i++) {
+                    const div = document.createElement('div');
+                    div.className = 'gallery-item';
+                    div.innerHTML = `<img src="${cat}${i}.jpg" alt="Photography">`;
+                    gallery.appendChild(div);
+                }
+            }
+            // Videos लोड करना
+            if(type === 'all-t' || type === 'video') {
+                videos.filter(v => v.cat === cat).forEach(vid => {
+                    const div = document.createElement('div');
+                    div.className = 'gallery-item';
+                    div.innerHTML = `<iframe src="https://www.youtube.com/embed/${vid.id}" allowfullscreen></iframe>`;
+                    gallery.appendChild(div);
+                });
+            }
+        }
 
-        typeBtns.forEach(btn => btn.addEventListener('click', () => {
-            document.querySelector('#type-filters .active').classList.remove('active');
-            btn.classList.add('active');
-            filter();
-        }));
+        // Sub-filter clicks
+        document.getElementById('btn-all-t').onclick = () => {
+            const cat = document.querySelector('.filters .active').innerText.toLowerCase().replace('-','');
+            loadGallery(cat, 'all-t');
+        };
+        document.getElementById('btn-photo').onclick = () => {
+            const cat = document.querySelector('.filters .active').innerText.toLowerCase().replace('-','');
+            loadGallery(cat, 'photo');
+        };
+        document.getElementById('btn-video').onclick = () => {
+            const cat = document.querySelector('.filters .active').innerText.toLowerCase().replace('-','');
+            loadGallery(cat, 'video');
+        };
+
+        // Initial Load
+        loadGallery('all');
     </script>
 </body>
 </html>
