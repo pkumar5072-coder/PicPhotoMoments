@@ -5,61 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PicPhotoMoments | Premium Cinema & Photography</title>
     <style>
-        /* --- GLOBAL STYLES --- */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
         body { background-color: #0b0b0b; color: #fff; overflow-x: hidden; }
 
+        /* Navigation */
         header {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 5%; background: rgba(0, 0, 0, 0.95);
+            padding: 15px 5%; background: rgba(0, 0, 0, 0.98);
             position: fixed; width: 100%; top: 0; z-index: 2000; border-bottom: 1px solid #222;
         }
         .logo { font-size: 22px; font-weight: bold; color: #f39c12; text-transform: uppercase; }
         nav ul { display: flex; list-style: none; gap: 20px; }
-        nav ul li a { text-decoration: none; color: #fff; font-size: 14px; text-transform: uppercase; transition: 0.3s; }
-        nav ul li a:hover { color: #f39c12; }
+        nav ul li a { text-decoration: none; color: #fff; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* --- HERO SECTION --- */
+        /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hero-bg.jpg'); 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero-bg.jpg');
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
         }
-        .hero h1 { font-size: clamp(30px, 8vw, 60px); margin-bottom: 15px; color: #fff; text-transform: uppercase; }
+        .hero h1 { font-size: clamp(30px, 8vw, 60px); color: #fff; text-transform: uppercase; margin-bottom: 20px; }
         .hero-btn { padding: 15px 40px; background: #f39c12; color: #000; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; }
+        .hero-btn:hover { background: #fff; }
 
-        /* --- ABOUT COMPANY SECTION --- */
+        /* Storytelling About Sections */
         .section-padding { padding: 100px 10%; }
-        .company-intro { text-align: center; margin-bottom: 60px; border-bottom: 1px solid #222; padding-bottom: 40px; }
-        .company-intro h2 { color: #f39c12; font-size: 40px; margin-bottom: 20px; }
-        
         .story-row { display: flex; align-items: center; gap: 50px; margin-bottom: 80px; flex-wrap: wrap; }
         .story-row:nth-child(even) { flex-direction: row-reverse; }
-        .story-img { flex: 1; min-width: 300px; height: 400px; border-radius: 15px; overflow: hidden; border: 1px solid #333; }
+        .story-img { flex: 1; min-width: 320px; height: 400px; border-radius: 15px; overflow: hidden; border: 1px solid #333; }
         .story-img img { width: 100%; height: 100%; object-fit: cover; }
-        .story-content { flex: 1; min-width: 300px; }
-        .story-content h2 { color: #f39c12; font-size: 32px; margin-bottom: 20px; }
-        .story-content p { color: #ccc; line-height: 1.8; font-size: 17px; margin-bottom: 15px; }
+        .story-content { flex: 1; min-width: 320px; }
+        .story-content h2 { color: #f39c12; font-size: 30px; margin-bottom: 20px; text-transform: uppercase; }
+        .story-content p { color: #ccc; line-height: 1.8; font-size: 17px; }
 
-        /* --- PORTFOLIO & FILTERS --- */
+        /* Portfolio */
         .portfolio-section { padding: 80px 5%; background: #0f0f0f; text-align: center; }
-        .filters, .sub-filters { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+        .filters { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
         .filter-btn {
             background: #1a1a1a; color: #fff; border: 1px solid #333; padding: 12px 22px;
-            cursor: pointer; border-radius: 5px; transition: 0.3s; font-weight: 600;
+            cursor: pointer; border-radius: 5px; transition: 0.3s; font-weight: bold;
         }
         .filter-btn.active { background: #f39c12; color: #000; border-color: #f39c12; }
-        .sub-filters { display: none; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; margin-bottom: 40px; }
 
-        /* --- GALLERY GRID --- */
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 15px; }
-        .gallery-item { border-radius: 10px; overflow: hidden; height: 350px; background: #1a1a1a; position: relative; }
-        .gallery-item img, .gallery-item iframe { width: 100%; height: 100%; object-fit: cover; border: none; }
+        .gallery-item { border-radius: 10px; overflow: hidden; height: 350px; background: #111; position: relative; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .gallery-item:hover img { transform: scale(1.05); }
 
-        /* --- FOOTER --- */
-        footer { padding: 60px 5%; background: #000; border-top: 1px solid #222; text-align: center; }
-        .social-btn { text-decoration: none; color: #fff; padding: 12px 25px; border-radius: 50px; font-weight: bold; display: inline-block; margin: 8px; transition: 0.3s; }
+        /* Footer & Contact */
+        footer { padding: 80px 5%; background: #000; text-align: center; border-top: 1px solid #222; }
+        .footer-info { margin-bottom: 30px; }
+        .footer-info p { font-size: 18px; color: #bbb; margin: 10px 0; }
+        .social-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .social-btn { text-decoration: none; color: #fff; padding: 15px 30px; border-radius: 50px; font-weight: bold; transition: 0.3s; min-width: 150px; }
 
         @media (max-width: 768px) { .story-row { text-align: center; } header nav { display: none; } }
     </style>
@@ -71,7 +70,7 @@
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
+                <li><a href="#about">Our Stories</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -80,151 +79,111 @@
 
     <section id="home" class="hero">
         <h1>Make a Wonderful Story for Your Wedding</h1>
-        <a href="#portfolio" class="hero-btn">The Visual Diary</a>
+        <a href="#portfolio" class="hero-btn">Explore The Visual Diary</a>
     </section>
 
-    <!-- ABOUT COMPANY SECTION -->
     <section id="about" class="section-padding">
-        <div class="company-intro">
-            <h2>About PicPhotoMoments</h2>
-            <p style="font-size: 19px; max-width: 800px; margin: 0 auto; line-height: 1.6;">
-                Welcome to PicPhotoMoments, where we believe every couple has a unique story waiting to be told. 
-                With a passion for cinematic excellence and an eye for candid emotions, our team captures the 
-                essence of your special day with a luxury touch.
-            </p>
-        </div>
-
+        <!-- Wedding -->
         <div class="story-row">
-            <div class="story-img"><img src="wedding1.jpg" alt="Wedding Cinema"></div>
+            <div class="story-img"><img src="wedding1.jpg" onerror="this.src='https://via.placeholder.com/600x400?text=Wedding+Cinema'"></div>
             <div class="story-content">
                 <h2>Wedding Cinema</h2>
-                <p>We don't just record weddings; we preserve the soul of your celebration. From the silent tears of parents to the joyful laughter of friends, we document every heartbeat.</p>
+                <p>We don't just record weddings; we preserve the soul of your celebration. From the silent tears of parents to the joyful laughter of friends, we document every heartbeat that makes your story unique.</p>
             </div>
         </div>
 
+        <!-- Pre-Wedding -->
         <div class="story-row">
-            <div class="story-img"><img src="pre1.jpg" alt="Pre-Wedding"></div>
+            <div class="story-img"><img src="pre1.jpg" onerror="this.src='https://via.placeholder.com/600x400?text=Pre-Wedding+Story'"></div>
             <div class="story-content">
                 <h2>Pre-Wedding Stories</h2>
-                <p>Your journey before 'I Do'. We create a dream-like atmosphere where your chemistry flows naturally, resulting in breathtaking visuals that last a lifetime.</p>
+                <p>Your journey before 'I Do'. We create a dream-like atmosphere where your natural chemistry shines. It's not just a photoshoot; it's an experience that captures your love in breathtaking frames.</p>
             </div>
         </div>
 
+        <!-- Engagement -->
         <div class="story-row">
-            <div class="story-img"><img src="eng1.jpg" alt="Engagement"></div>
+            <div class="story-img"><img src="eng1.jpg" onerror="this.src='https://via.placeholder.com/600x400?text=Ring+Ceremony'"></div>
             <div class="story-content">
                 <h2>Engagement & Ring Ceremony</h2>
-                <p>The first step towards forever. We capture the delicate exchange of rings and the beginning of a new chapter with elegance and precision.</p>
+                <p>The first step towards your forever. We capture the elegance of the ring exchange and the promise of a new life together with cinematic precision and grace.</p>
             </div>
         </div>
 
+        <!-- Haldi & Mehndi -->
         <div class="story-row">
-            <div class="story-img"><img src="haldi1.jpg" alt="Traditions"></div>
+            <div class="story-img"><img src="haldi1.jpg" onerror="this.src='https://via.placeholder.com/600x400?text=Haldi+Mehndi'"></div>
             <div class="story-content">
                 <h2>Haldi & Mehndi Traditions</h2>
-                <p>A blast of colors and joy. We focus on the vibrant yellow hues and intricate henna patterns, capturing the raw energy of traditional rituals.</p>
+                <p>A blast of colors and raw energy. We focus on the vibrant yellow hues, intricate henna patterns, and the traditional joy that brings families together.</p>
             </div>
         </div>
     </section>
 
-    <!-- PORTFOLIO SECTION -->
     <section id="portfolio" class="portfolio-section">
         <h2 style="color:#f39c12; margin-bottom: 40px; font-size: 36px;">The Visual Diary</h2>
         
         <div class="filters" id="cat-filters">
-            <button class="filter-btn active" data-filter="all">All Work</button>
+            <button class="filter-btn active" data-filter="all">All Masterpieces</button>
             <button class="filter-btn" data-filter="wedding">Wedding</button>
             <button class="filter-btn" data-filter="pre">Pre-Wedding</button>
             <button class="filter-btn" data-filter="eng">Engagement</button>
             <button class="filter-btn" data-filter="haldi">Haldi</button>
             <button class="filter-btn" data-filter="meh">Mehndi</button>
-        </div>
-
-        <div class="sub-filters" id="type-filters">
-            <button class="filter-btn active" data-type="all-t">Everything</button>
-            <button class="filter-btn" data-type="photo">Photos</button>
-            <button class="filter-btn" data-type="video">Videos</button>
+            <button class="filter-btn" data-filter="corp">Corporate</button>
         </div>
 
         <div class="gallery-grid" id="gallery">
-            <!-- Automatic content will load here -->
+            <!-- JavaScript loads up to 1000 images per category -->
         </div>
     </section>
 
     <footer id="contact">
-        <div style="margin-bottom: 30px;">
-            <h2 style="color:#f39c12;">Let's Create Magic Together</h2>
-            <p>Mobile: 8826540642 | Email: picphotomoments@gmail.com</p>
+        <div class="footer-info">
+            <h2 style="color:#f39c12; margin-bottom: 15px;">Let's Create Magic Together</h2>
+            <p>Direct Call: <strong>8826540642</strong></p>
+            <p>Email: <strong>picphotomoments@gmail.com</strong></p>
         </div>
+        
         <div class="social-links">
             <a href="tel:+918826540642" class="social-btn" style="background:#f39c12; color:#000;">📞 CALL NOW</a>
             <a href="https://wa.me/918826540642" target="_blank" class="social-btn" style="background:#25D366;">WHATSAPP</a>
-            <a href="https://www.instagram.com/picphotomoments?igsh=MTRnZ2Vrc2dxbmxr" target="_blank" class="social-btn" style="background:#E1306C;">INSTAGRAM</a>
+            <a href="https://www.instagram.com/picphotomoments" target="_blank" class="social-btn" style="background:#E1306C;">INSTAGRAM</a>
             <a href="https://www.facebook.com/share/1Cr6R4dBXg/" target="_blank" class="social-btn" style="background:#1877F2;">FACEBOOK</a>
         </div>
-        <p style="margin-top: 40px; color:#444; font-size: 14px;">© 2026 PicPhotoMoments | Professional Wedding Films</p>
     </footer>
 
     <script>
-        // --- 1. SETTINGS (Sirf yahan number badlein) ---
-        const config = {
-            wedding: 5,  // Jitni wedding photos hain
-            pre: 3,      // Jitni pre-wedding photos hain
-            eng: 2,      // Engagement photos
-            haldi: 2,
-            meh: 2
-        };
-
-        // --- 2. VIDEOS (YouTube ID yahan daalein) ---
-        const videos = [
-            { id: "EXAMPLE_ID", cat: "wedding" }
-        ];
-
         const gallery = document.getElementById('gallery');
-
-        function loadGallery() {
-            gallery.innerHTML = "";
-            // Photos Loading
-            for (let cat in config) {
-                for (let i = 1; i <= config[cat]; i++) {
-                    gallery.innerHTML += `<div class="gallery-item ${cat} photo"><img src="${cat}${i}.jpg" onerror="this.style.display='none'"></div>`;
+        const categories = ['wedding', 'pre', 'eng', 'haldi', 'meh', 'corp'];
+        
+        function autoLoad() {
+            categories.forEach(cat => {
+                for (let i = 1; i <= 1000; i++) {
+                    const item = document.createElement('div');
+                    item.className = `gallery-item ${cat}`;
+                    const img = document.createElement('img');
+                    img.src = `${cat}${i}.jpg`;
+                    img.loading = "lazy";
+                    img.onerror = () => item.remove(); 
+                    item.appendChild(img);
+                    gallery.appendChild(item);
                 }
-            }
-            // Videos Loading
-            videos.forEach(v => {
-                gallery.innerHTML += `<div class="gallery-item ${v.cat} video"><iframe src="https://www.youtube.com/embed/${v.id}"></iframe></div>`;
             });
         }
+        autoLoad();
 
-        loadGallery();
-
-        // Filtering
-        const catBtns = document.querySelectorAll('#cat-filters .filter-btn');
-        const typeBtns = document.querySelectorAll('#type-filters .filter-btn');
-        const subF = document.getElementById('type-filters');
-
-        function filter() {
-            const c = document.querySelector('#cat-filters .active').dataset.filter;
-            const t = document.querySelector('#type-filters .active').dataset.type;
-            document.querySelectorAll('.gallery-item').forEach(item => {
-                const cm = c === 'all' || item.classList.contains(c);
-                const tm = t === 'all-t' || (t === 'photo' && item.classList.contains('photo')) || (t === 'video' && item.classList.contains('video'));
-                item.style.display = (cm && tm) ? "block" : "none";
+        const btns = document.querySelectorAll('.filter-btn');
+        btns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelector('.filter-btn.active').classList.remove('active');
+                btn.classList.add('active');
+                const f = btn.dataset.filter;
+                document.querySelectorAll('.gallery-item').forEach(item => {
+                    item.style.display = (f === 'all' || item.classList.contains(f)) ? "block" : "none";
+                });
             });
-        }
-
-        catBtns.forEach(b => b.addEventListener('click', () => {
-            document.querySelector('#cat-filters .active').classList.remove('active');
-            b.classList.add('active');
-            subF.style.display = (b.dataset.filter === 'all') ? "none" : "flex";
-            filter();
-        }));
-
-        typeBtns.forEach(b => b.addEventListener('click', () => {
-            document.querySelector('#type-filters .active').classList.remove('active');
-            b.classList.add('active');
-            filter();
-        }));
+        });
     </script>
 </body>
 </html>
