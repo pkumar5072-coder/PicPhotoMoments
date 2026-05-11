@@ -18,7 +18,6 @@
         }
         .logo { font-size: 26px; font-weight: 800; color: #f39c12; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* HERO SECTION - REINSTATED */
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('hero-bg.jpg'); 
@@ -38,11 +37,10 @@
         }
         .filter-btn.active { background: #f39c12; color: #000; border-color: #f39c12; }
 
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 15px; }
-        .gallery-item { border-radius: 5px; overflow: hidden; height: 380px; background: #111; border: 1px solid #1a1a1a; animation: fadeIn 0.6s ease; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 15px; min-height: 200px; }
+        /* Black box hatane ke liye Gallery Item ko initially hide kiya hai */
+        .gallery-item { border-radius: 5px; overflow: hidden; height: 380px; background: #111; border: 1px solid #1a1a1a; display: none; }
         .gallery-item img, .gallery-item iframe { width: 100%; height: 100%; object-fit: cover; border: none; cursor: zoom-in; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         footer { padding: 80px 5%; background: #000; text-align: center; border-top: 1px solid #1a1a1a; }
         .social-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 30px; }
@@ -79,7 +77,6 @@
             <button class="filter-btn" onclick="changeCategory('eng', this)">Engagement</button>
             <button class="filter-btn" onclick="changeCategory('haldi', this)">Haldi</button>
             <button class="filter-btn" onclick="changeCategory('meh', this)">Mehndi</button>
-            <button class="filter-btn" onclick="changeCategory('corp', this)">Corporate</button>
         </div>
 
         <div class="sub-filters" id="type-box">
@@ -93,7 +90,6 @@
 
     <footer>
         <h2 style="color:#f39c12; margin-bottom: 10px;">Contact Us</h2>
-        <p>Email: picphotomoments@gmail.com | Phone: 8826540642</p>
         <div class="social-links">
             <a href="tel:+918826540642" class="social-btn btn-call"><i class="fas fa-phone"></i> CALL</a>
             <a href="https://wa.me/918826540642" target="_blank" class="social-btn btn-wa"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
@@ -106,13 +102,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 
     <script>
+        // Pradeep ji, yahan bas unhi ke number likhein jo photos folder mein hain
         const counts = { 
             wedding: 5, 
-            pre: 23, // Pre-Wedding set to 23
-            eng: 2, 
-            haldi: 1, 
-            meh: 1, 
-            corp: 1 
+            pre: 23, 
+            eng: 0,   // Agar engagement ki photo nahi hai to 0 kar dein
+            haldi: 0, // Haldi nahi hai to 0 kar dein
+            meh: 0,   // Mehndi nahi hai to 0 kar dein
+            corp: 0 
         };
 
         const videos = [ { id: "AbCdEf123", cat: "wedding" } ];
@@ -126,20 +123,20 @@
             const catsToLoad = currentCat === 'all' ? Object.keys(counts) : [currentCat];
             
             catsToLoad.forEach(cat => {
-                // Photos
                 if (currentType === 'all-t' || currentType === 'photo') {
                     for (let i = 1; i <= counts[cat]; i++) {
                         const item = document.createElement('div');
                         item.className = 'gallery-item';
-                        item.innerHTML = `<a href="${cat}${i}.jpg" data-lightbox="gallery-group"><img src="${cat}${i}.jpg" loading="lazy" onerror="this.style.display='none'"></a>`;
+                        // Onload function black boxes ko gayab rakhega jab tak photo load na ho
+                        item.innerHTML = `<a href="${cat}${i}.jpg" data-lightbox="gallery-group"><img src="${cat}${i}.jpg" loading="lazy" onload="this.parentElement.parentElement.style.display='block'" onerror="this.parentElement.parentElement.style.display='none'"></a>`;
                         gallery.appendChild(item);
                     }
                 }
-                // Videos
                 if (currentType === 'all-t' || currentType === 'video') {
                     videos.filter(v => v.cat === cat).forEach(vid => {
                         const item = document.createElement('div');
                         item.className = 'gallery-item';
+                        item.style.display = 'block';
                         item.innerHTML = `<iframe src="https://www.youtube.com/embed/${vid.id}" allowfullscreen></iframe>`;
                         gallery.appendChild(item);
                     });
