@@ -3,57 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PicPhotoMoments | Luxury Cinematic Stories</title>
+    <title>PicPhotoMoments | Premium Cinematic Stories</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     <style>
+        /* LUXURY STYLING */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
         body { background-color: #050505; color: #ffffff; overflow-x: hidden; }
 
         header {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 8%; background: rgba(0, 0, 0, 0.95);
+            padding: 20px 8%; background: rgba(0, 0, 0, 0.9);
             position: fixed; width: 100%; top: 0; z-index: 2000; border-bottom: 1px solid #1a1a1a;
             backdrop-filter: blur(10px);
         }
-        .logo { font-size: 26px; font-weight: 800; color: #f39c12; text-transform: uppercase; letter-spacing: 2px; }
+        .logo { font-size: 24px; font-weight: 800; color: #f39c12; text-transform: uppercase; letter-spacing: 2px; }
+        nav ul { display: flex; list-style: none; gap: 25px; }
+        nav ul li a { text-decoration: none; color: #bbb; font-size: 13px; text-transform: uppercase; transition: 0.3s; }
+        nav ul li a:hover { color: #f39c12; }
 
+        /* HERO SECTION */
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('hero-bg.jpg'); 
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
         }
-        .hero h1 { font-size: clamp(35px, 8vw, 70px); color: #fff; text-transform: uppercase; font-weight: 900; margin-bottom: 20px; }
-        .hero-btn { padding: 18px 45px; background: #f39c12; color: #000; text-decoration: none; font-weight: bold; text-transform: uppercase; }
+        .hero h1 { font-size: clamp(35px, 8vw, 75px); color: #fff; text-transform: uppercase; line-height: 1.1; margin-bottom: 25px; font-weight: 900; }
+        .hero-btn { padding: 18px 45px; background: #f39c12; color: #000; text-decoration: none; border-radius: 2px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; transition: 0.4s; }
+        .hero-btn:hover { background: #fff; transform: scale(1.05); }
 
+        /* STORYTELLING SECTION */
+        .section-padding { padding: 100px 10%; }
+        .story-row { display: flex; align-items: center; gap: 60px; margin-bottom: 100px; flex-wrap: wrap; }
+        .story-row:nth-child(even) { flex-direction: row-reverse; }
+        .story-img { flex: 1; min-width: 320px; height: 450px; position: relative; overflow: hidden; border: 1px solid #222; }
+        .story-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s; }
+        .story-img:hover img { transform: scale(1.1); }
+        .story-content { flex: 1; min-width: 320px; }
+        .story-content h2 { color: #f39c12; font-size: 35px; margin-bottom: 20px; text-transform: uppercase; font-weight: 700; }
+        .story-content p { color: #888; line-height: 1.8; font-size: 18px; }
+
+        /* PORTFOLIO & FILTERS */
         .portfolio-section { padding: 100px 5%; background: #080808; text-align: center; }
-        .filters, .sub-filters { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 25px; }
-        .sub-filters { display: none; margin-bottom: 40px; background: #111; padding: 20px; border-radius: 5px; }
+        .filters, .sub-filters { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 30px; }
+        .sub-filters { display: none; background: #111; padding: 20px; border-radius: 4px; margin-bottom: 50px; border: 1px solid #1a1a1a; }
         
         .filter-btn {
-            background: transparent; color: #888; border: 1px solid #333; padding: 12px 25px;
+            background: transparent; color: #666; border: 1px solid #222; padding: 12px 28px;
             cursor: pointer; transition: 0.3s; font-weight: 600; text-transform: uppercase; font-size: 13px;
         }
         .filter-btn.active { background: #f39c12; color: #000; border-color: #f39c12; }
 
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 15px; min-height: 200px; }
-        /* Black box hatane ke liye Gallery Item ko initially hide kiya hai */
-        .gallery-item { border-radius: 5px; overflow: hidden; height: 380px; background: #111; border: 1px solid #1a1a1a; display: none; }
+        /* GRID */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 20px; }
+        .gallery-item { border-radius: 0px; overflow: hidden; height: 380px; background: #000; position: relative; animation: fadeInUp 0.6s ease; }
         .gallery-item img, .gallery-item iframe { width: 100%; height: 100%; object-fit: cover; border: none; cursor: zoom-in; }
 
-        footer { padding: 80px 5%; background: #000; text-align: center; border-top: 1px solid #1a1a1a; }
-        .social-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 30px; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* FOOTER */
+        footer { padding: 100px 5% 50px; background: #000; text-align: center; border-top: 1px solid #111; }
+        .social-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 40px; }
+        
+        /* Updated Branded Social Buttons */
         .social-btn { 
-            text-decoration: none; color: #fff; padding: 15px 30px; border-radius: 50px; 
-            font-weight: bold; display: flex; align-items: center; gap: 10px; transition: 0.3s; 
+            text-decoration: none; color: #fff; padding: 15px 35px; border-radius: 4px;
+            font-weight: bold; transition: 0.3s; font-size: 13px; letter-spacing: 1px;
+            display: flex; align-items: center; gap: 8px;
         }
         .btn-call { background: #f39c12; color: #000; }
         .btn-wa { background: #25D366; }
         .btn-insta { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
         .btn-fb { background: #1877F2; }
+        .social-btn:hover { transform: translateY(-5px); opacity: 0.9; }
 
-        @media (max-width: 768px) { .hero h1 { font-size: 40px; } }
+        @media (max-width: 768px) { .hero h1 { font-size: 40px; } .story-row { text-align: center; } header nav { display: none; } }
     </style>
 </head>
 <body>
@@ -64,11 +89,28 @@
 
     <section id="home" class="hero">
         <h1>Make a Wonderful Story<br>For Your Wedding</h1>
-        <a href="#portfolio" class="hero-btn">Explore Portfolio</a>
+        <a href="#portfolio" class="hero-btn">Explore The Visual Diary</a>
+    </section>
+
+    <section id="about" class="section-padding">
+        <div class="story-row">
+            <div class="story-img"><img src="wedding1.jpg" onerror="this.src='https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800'"></div>
+            <div class="story-content">
+                <h2>Wedding Cinema</h2>
+                <p>We believe in preserving the raw emotions. From the grand entry to the silent tears, our cinematic style ensures your big day feels like a movie every time you rewatch it.</p>
+            </div>
+        </div>
+        <div class="story-row">
+            <div class="story-img"><img src="pre1.jpg" onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800'"></div>
+            <div class="story-content">
+                <h2>Pre-Wedding Stories</h2>
+                <p>Your journey before the vows. We pick breathtaking locations and combine them with your natural chemistry to create visuals that are truly timeless.</p>
+            </div>
+        </div>
     </section>
 
     <section id="portfolio" class="portfolio-section">
-        <h2 style="color:#f39c12; margin-bottom: 40px; font-size: 35px; font-weight: 800;">THE VISUAL DIARY</h2>
+        <h2 style="color:#f39c12; margin-bottom: 40px; font-size: 40px; font-weight: 800;">THE VISUAL DIARY</h2>
         
         <div class="filters" id="cat-filters">
             <button class="filter-btn active" onclick="changeCategory('all', this)">All Work</button>
@@ -88,28 +130,29 @@
         <div class="gallery-grid" id="gallery"></div>
     </section>
 
-    <footer>
-        <h2 style="color:#f39c12; margin-bottom: 10px;">Contact Us</h2>
+    <footer id="contact">
+        <h2 style="color:#f39c12; margin-bottom: 20px;">Let's Create Magic</h2>
+        <p style="color:#666;">picphotomoments@gmail.com | 8826540642</p>
         <div class="social-links">
-            <a href="tel:+918826540642" class="social-btn btn-call"><i class="fas fa-phone"></i> CALL</a>
+            <a href="tel:+918826540642" class="social-btn btn-call"><i class="fas fa-phone"></i> CALL NOW</a>
             <a href="https://wa.me/918826540642" target="_blank" class="social-btn btn-wa"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
             <a href="https://www.instagram.com/picphotomoments" target="_blank" class="social-btn btn-insta"><i class="fab fa-instagram"></i> INSTAGRAM</a>
             <a href="https://www.facebook.com/share/1Cr6R4dBXg/" target="_blank" class="social-btn btn-fb"><i class="fab fa-facebook-f"></i> FACEBOOK</a>
         </div>
+        <p style="margin-top: 60px; color:#333; font-size: 12px; letter-spacing: 2px;">© 2026 PICPHOTOMOMENTS | NEW DELHI</p>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 
     <script>
-        // Pradeep ji, yahan bas unhi ke number likhein jo photos folder mein hain
         const counts = { 
-            wedding: 5, 
-            pre: 23, 
-            eng: 0,   // Agar engagement ki photo nahi hai to 0 kar dein
-            haldi: 0, // Haldi nahi hai to 0 kar dein
-            meh: 0,   // Mehndi nahi hai to 0 kar dein
-            corp: 0 
+            wedding: 5,  
+            pre: 23,        
+            eng: 2,       
+            haldi: 1, 
+            meh: 1, 
+            corp: 1 
         };
 
         const videos = [ { id: "AbCdEf123", cat: "wedding" } ];
@@ -125,20 +168,22 @@
             catsToLoad.forEach(cat => {
                 if (currentType === 'all-t' || currentType === 'photo') {
                     for (let i = 1; i <= counts[cat]; i++) {
-                        const item = document.createElement('div');
-                        item.className = 'gallery-item';
-                        // Onload function black boxes ko gayab rakhega jab tak photo load na ho
-                        item.innerHTML = `<a href="${cat}${i}.jpg" data-lightbox="gallery-group"><img src="${cat}${i}.jpg" loading="lazy" onload="this.parentElement.parentElement.style.display='block'" onerror="this.parentElement.parentElement.style.display='none'"></a>`;
-                        gallery.appendChild(item);
+                        const div = document.createElement('div');
+                        div.className = 'gallery-item';
+                        // Added Lightbox for Zoom and onerror to hide blank boxes
+                        div.innerHTML = `
+                            <a href="./${cat}${i}.jpg" data-lightbox="gallery-group">
+                                <img src="./${cat}${i}.jpg" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'">
+                            </a>`;
+                        gallery.appendChild(div);
                     }
                 }
                 if (currentType === 'all-t' || currentType === 'video') {
                     videos.filter(v => v.cat === cat).forEach(vid => {
-                        const item = document.createElement('div');
-                        item.className = 'gallery-item';
-                        item.style.display = 'block';
-                        item.innerHTML = `<iframe src="https://www.youtube.com/embed/${vid.id}" allowfullscreen></iframe>`;
-                        gallery.appendChild(item);
+                        const div = document.createElement('div');
+                        div.className = 'gallery-item';
+                        div.innerHTML = `<iframe src="https://www.youtube.com/embed/${vid.id}" allowfullscreen></iframe>`;
+                        gallery.appendChild(div);
                     });
                 }
             });
