@@ -3,69 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PicPhotoMoments | Luxury Portfolio</title>
+    <title>PicPhotoMoments | Premium Cinema & Photography</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior: smooth; }
-        body { background-color: #0b0b0b; color: #fff; }
+        /* --- GLOBAL STYLES --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
+        body { background-color: #0b0b0b; color: #fff; overflow-x: hidden; }
 
-        /* Header */
+        /* --- NAVIGATION --- */
         header {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 5%; background: rgba(0, 0, 0, 0.9);
-            position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 15px 5%; background: rgba(0, 0, 0, 0.95);
+            position: fixed; width: 100%; top: 0; z-index: 2000; border-bottom: 1px solid #222;
         }
-        .logo { font-size: 24px; font-weight: bold; color: #f39c12; text-transform: uppercase; }
+        .logo { font-size: 22px; font-weight: bold; color: #f39c12; text-transform: uppercase; }
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav ul li a { text-decoration: none; color: #fff; font-size: 14px; text-transform: uppercase; transition: 0.3s; }
+        nav ul li a:hover { color: #f39c12; }
 
-        /* Hero Section (Aapka Purana Wala Style) */
+        /* --- HERO SECTION --- */
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hero-bg.jpg'); 
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
         }
-        .hero h1 { font-size: 55px; margin-bottom: 10px; color: #fff; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .hero p { font-size: 20px; color: #f1f1f1; }
+        .hero h1 { font-size: clamp(30px, 8vw, 60px); margin-bottom: 15px; color: #fff; text-transform: uppercase; }
+        .hero p { font-size: 20px; color: #ddd; margin-bottom: 30px; }
+        .hero-btn { padding: 15px 40px; background: #f39c12; color: #000; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; }
 
-        /* Portfolio Section */
-        .portfolio-section { padding: 100px 5%; text-align: center; }
-        .filters { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 30px; }
-        
-        /* Sub-Filters (Jo category click karne par dikhenge) */
-        .sub-filters { 
-            display: none; /* Pehle chhupa rahega */
-            justify-content: center; gap: 10px; margin-bottom: 40px; 
-            padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px;
-        }
-        
+        /* --- ABOUT (Zig-Zag) --- */
+        .story-section { padding: 100px 10%; }
+        .story-row { display: flex; align-items: center; gap: 50px; margin-bottom: 80px; flex-wrap: wrap; }
+        .story-row:nth-child(even) { flex-direction: row-reverse; }
+        .story-img { flex: 1; min-width: 300px; height: 400px; border-radius: 15px; overflow: hidden; border: 1px solid #333; }
+        .story-img img { width: 100%; height: 100%; object-fit: cover; }
+        .story-content { flex: 1; min-width: 300px; }
+        .story-content h2 { color: #f39c12; font-size: 32px; margin-bottom: 20px; }
+        .story-content p { color: #ccc; line-height: 1.8; font-size: 17px; }
+
+        /* --- PORTFOLIO & FILTERS --- */
+        .portfolio-section { padding: 80px 5%; background: #0f0f0f; text-align: center; }
+        .filters, .sub-filters { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
         .filter-btn {
-            background: #1a1a1a; color: #fff; border: 1px solid #444; padding: 12px 25px;
+            background: #1a1a1a; color: #fff; border: 1px solid #333; padding: 12px 22px;
             cursor: pointer; border-radius: 5px; transition: 0.3s; font-weight: 600;
         }
         .filter-btn.active { background: #f39c12; color: #000; border-color: #f39c12; }
-        .sub-btn { font-size: 13px; background: #333; }
+        .sub-filters { display: none; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; margin-bottom: 40px; }
 
-        /* Gallery Grid */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; }
-        .gallery-item { border-radius: 10px; overflow: hidden; height: 320px; background: #111; display: none; }
+        /* --- GALLERY GRID --- */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 15px; }
+        .gallery-item { border-radius: 10px; overflow: hidden; height: 350px; background: #1a1a1a; display: block; position: relative; }
         .gallery-item img, .gallery-item iframe { width: 100%; height: 100%; object-fit: cover; border: none; }
 
-        footer { padding: 50px; background: #000; text-align: center; border-top: 1px solid #222; }
+        /* --- FOOTER --- */
+        footer { padding: 60px 5%; background: #000; border-top: 1px solid #222; text-align: center; }
+        .footer-details { margin-bottom: 30px; }
+        .footer-details p { font-size: 18px; margin: 5px 0; color: #bbb; }
+        .social-btn { text-decoration: none; color: #fff; padding: 12px 25px; border-radius: 50px; font-weight: bold; display: inline-block; margin: 8px; transition: 0.3s; }
+
+        @media (max-width: 768px) { .story-row { text-align: center; } header nav { display: none; } }
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo">PicPhotoMoments</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Our Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="hero">
+    <section id="home" class="hero">
         <h1>Make a Wonderful Story for Your Wedding</h1>
         <p>Feel Luxury Wedding Films and Cinematic Photography</p>
+        <a href="#portfolio" class="hero-btn">Explore Portfolio</a>
     </section>
 
-    <main class="portfolio-section">
+    <section id="about" class="story-section">
+        <div class="story-row">
+            <div class="story-img"><img src="wed1.jpg" alt="Wedding Cinema"></div>
+            <div class="story-content">
+                <h2>Wedding Cinema</h2>
+                <p>हम सिर्फ शादी की फिल्में नहीं बनाते, हम आपकी खुशियों की रूह को कैद करते हैं। शांत आंसुओं से लेकर ज़ोरदार ठहाकों तक, हम हर उस पल को रिकॉर्ड करते हैं जो आपकी कहानी को यादगार बनाता है।</p>
+            </div>
+        </div>
+
+        <div class="story-row">
+            <div class="story-img"><img src="pw1.jpg" alt="Pre-Wedding"></div>
+            <div class="story-content">
+                <h2>Pre-Wedding Stories</h2>
+                <p>एक खूबसूरत सफर की शुरुआत। हम एक ऐसी आरामदायक जगह बनाते हैं जहाँ आपकी केमिस्ट्री खुद-ब-खुद बोलती है, जिससे हर फ्रेम एक सपने जैसा लगता है।</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio-section">
+        <h2 style="color:#f39c12; margin-bottom: 40px; font-size: 36px;">Our Masterpieces</h2>
+        
         <div class="filters" id="category-filters">
-            <button class="filter-btn active" data-filter="all">All Work</button>
+            <button class="filter-btn active" data-filter="all">All Categories</button>
             <button class="filter-btn" data-filter="wedding">Wedding</button>
             <button class="filter-btn" data-filter="prewedding">Pre-Wedding</button>
             <button class="filter-btn" data-filter="engagement">Engagement</button>
@@ -76,47 +118,69 @@
         </div>
 
         <div class="sub-filters" id="type-filters">
-            <button class="filter-btn sub-btn active" data-type="all-type">Show All</button>
-            <button class="filter-btn sub-btn" data-type="photo">Photos</button>
-            <button class="filter-btn sub-btn" data-type="video">Videos</button>
+            <button class="filter-btn active" data-type="all-type">Show Everything</button>
+            <button class="filter-btn" data-type="photo">Photos Only</button>
+            <button class="filter-btn" data-type="video">Videos Only</button>
         </div>
 
         <div class="gallery-grid" id="gallery">
-            <div class="gallery-item wedding photo all"><img src="wed1.jpg"></div>
-            <div class="gallery-item wedding photo all"><img src="wed2.jpg"></div>
-            <div class="gallery-item wedding photo all"><img src="wed3.jpg"></div>
-            <div class="gallery-item wedding photo all"><img src="wed4.jpg"></div>
-            <div class="gallery-item wedding photo all"><img src="wed5.jpg"></div>
-            <div class="gallery-item wedding video all"><iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"></iframe></div>
-
-            <div class="gallery-item engagement photo all"><img src="eng1.jpg"></div>
-            <div class="gallery-item engagement photo all"><img src="eng2.jpg"></div>
-            <div class="gallery-item engagement photo all"><img src="eng3.jpg"></div>
-            <div class="gallery-item engagement photo all"><img src="eng4.jpg"></div>
-            <div class="gallery-item engagement photo all"><img src="eng5.jpg"></div>
-            <div class="gallery-item engagement video all"><iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"></iframe></div>
-
-            <div class="gallery-item haldi photo all"><img src="hal1.jpg"></div>
-            <div class="gallery-item mehndi photo all"><img src="meh1.jpg"></div>
+            <div class="gallery-item wedding photo"><img src="wed1.jpg"></div>
+            <div class="gallery-item engagement photo"><img src="eng1.jpg"></div>
         </div>
-    </main>
+    </section>
 
-            <footer>
-        <div style="margin-bottom: 30px;">
-            <h2 style="color: #f39c12; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px;">Get In Touch</h2>
-            <p style="font-size: 18px; margin-bottom: 5px;">Ready to capture your story?</p>
+    <footer id="contact">
+        <div class="footer-details">
+            <h2 style="color:#f39c12; margin-bottom: 20px;">Let's Create Magic Together</h2>
+            <p>Direct Call: <strong>+91 8826540642</strong></p>
+            <p>Email: <a href="mailto:picphotomoments@gmail.com" style="color:#bbb; text-decoration:none;"><strong>picphotomoments@gmail.com</strong></a></p>
         </div>
-
-        <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 25px;">
+        
+        <div class="social-links">
+            <a href="tel:+918826540642" class="social-btn" style="background:#f39c12; color:#000;">📞 CALL NOW</a>
             
-            <a href="tel:+918826540642" style="text-decoration: none; color: #000; background: #f39c12; padding: 12px 30px; border-radius: 50px; font-weight: bold; transition: 0.3s; box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);">📞 Call Now</a>
-
-            <a href="https://wa.me/918826540642" target="_blank" style="text-decoration: none; color: #fff; background: #25D366; padding: 12px 25px; border-radius: 50px; font-weight: bold; transition: 0.3s;">WhatsApp</a>
+            <a href="https://wa.me/918826540642" target="_blank" class="social-btn" style="background:#25D366;">WHATSAPP</a>
             
-            <a href="https://www.instagram.com/picphotomoments" target="_blank" style="text-decoration: none; color: #fff; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); padding: 12px 25px; border-radius: 50px; font-weight: bold; transition: 0.3s;">Instagram</a>
+            <a href="https://www.instagram.com/picphotomoments?igsh=MTRnZ2Vrc2dxbmxr" target="_blank" class="social-btn" style="background:#E1306C;">INSTAGRAM</a>
             
-            <a href="https://www.facebook.com/picphotomoments" target="_blank" style="text-decoration: none; color: #fff; background: #1877F2; padding: 12px 25px; border-radius: 50px; font-weight: bold; transition: 0.3s;">Facebook</a>
+            <a href="https://www.facebook.com/share/1Cr6R4dBXg/" target="_blank" class="social-btn" style="background:#1877F2;">FACEBOOK</a>
         </div>
-
-        <p style="margin-top: 40px; color: #555; font-size: 14px;">© 2026 PicPhotoMoments | Direct Contact: 8826540642</p>
+        <p style="margin-top: 40px; color:#444; font-size: 14px;">© 2026 PicPhotoMoments | Professional Wedding Films & Photography</p>
     </footer>
+
+    <script>
+        const catBtns = document.querySelectorAll('#category-filters .filter-btn');
+        const typeBtns = document.querySelectorAll('#type-filters .filter-btn');
+        const subFilters = document.getElementById('type-filters');
+        const items = document.querySelectorAll('.gallery-item');
+
+        function applyFilters() {
+            const currentCat = document.querySelector('#category-filters .active').getAttribute('data-filter');
+            const currentType = document.querySelector('#type-filters .active').getAttribute('data-type');
+            
+            items.forEach(item => {
+                const matchCat = currentCat === 'all' || item.classList.contains(currentCat);
+                const matchType = currentType === 'all-type' || item.classList.contains(currentType);
+                item.style.display = (matchCat && matchType) ? "block" : "none";
+            });
+        }
+
+        catBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelector('#category-filters .active').classList.remove('active');
+                btn.classList.add('active');
+                subFilters.style.display = (btn.getAttribute('data-filter') === 'all') ? "none" : "flex";
+                applyFilters();
+            });
+        });
+
+        typeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelector('#type-filters .active').classList.remove('active');
+                btn.classList.add('active');
+                applyFilters();
+            });
+        });
+    </script>
+</body>
+</html>
