@@ -20,27 +20,15 @@
             backdrop-filter: blur(15px);
         }
 
-        /* HATKE STYLISH LOGO SECTION */
         .logo { 
-            font-family: 'Great Vibes', cursive; /* Stylish Cursive Font */
-            font-size: 42px; 
-            color: #f39c12;
+            font-family: 'Great Vibes', cursive; font-size: 42px; color: #f39c12;
             background: linear-gradient(to bottom, #f39c12 0%, #d4af37 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: capitalize; /* Sirf pehla letter bada */
-            letter-spacing: 1px;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
         .logo span {
-            font-family: 'Cinzel', serif; /* Royal Serif Font */
-            font-size: 16px;
-            color: #ffffff;
-            -webkit-text-fill-color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            display: block;
-            margin-top: -10px;
-            font-weight: 400;
+            font-family: 'Cinzel', serif; font-size: 16px; color: #ffffff;
+            -webkit-text-fill-color: #ffffff; text-transform: uppercase;
+            letter-spacing: 5px; display: block; margin-top: -10px;
         }
 
         .hero {
@@ -49,39 +37,39 @@
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
         }
-        .hero h1 { font-family: 'Cinzel', serif; font-size: clamp(35px, 8vw, 75px); color: #fff; text-transform: uppercase; line-height: 1.1; margin-bottom: 25px; font-weight: 700; letter-spacing: 3px; }
-        .hero-btn { padding: 18px 45px; background: #f39c12; color: #000; text-decoration: none; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; transition: 0.4s; border: 1px solid #f39c12; }
-        .hero-btn:hover { background: transparent; color: #f39c12; }
 
-        .portfolio-section { padding: 100px 5%; background: #080808; text-align: center; }
-        .filters { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+        /* ZIGZAG SECTION STYLE */
+        .section-padding { padding: 80px 10%; }
+        .story-row { display: flex; align-items: center; gap: 50px; margin-bottom: 80px; flex-wrap: wrap; }
+        .story-row:nth-child(even) { flex-direction: row-reverse; }
+        .story-img { flex: 1; min-width: 300px; height: 400px; overflow: hidden; border: 1px solid #222; }
+        .story-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .story-img:hover img { transform: scale(1.1); }
+        .story-content { flex: 1; min-width: 300px; }
+        .story-content h2 { font-family: 'Cinzel', serif; color: #f39c12; font-size: 30px; margin-bottom: 15px; }
+        .story-content p { color: #888; line-height: 1.6; }
+
+        .portfolio-section { padding: 80px 5%; background: #080808; text-align: center; }
+        .filters { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
         
         .filter-btn {
-            background: transparent; color: #888; border: 1px solid #222; padding: 10px 25px;
-            cursor: pointer; transition: 0.3s; font-weight: 400; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;
+            background: transparent; color: #888; border: 1px solid #222; padding: 8px 20px;
+            cursor: pointer; transition: 0.3s; font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
         }
-        .filter-btn.active { background: #f39c12; color: #000; border-color: #f39c12; font-weight: 700; }
+        .filter-btn.active { background: #f39c12; color: #000; border-color: #f39c12; font-weight: bold; }
 
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 15px; }
-        .gallery-item { overflow: hidden; height: 400px; background: #000; border: 1px solid #111; position: relative; transition: 0.5s; }
-        .gallery-item:hover { border-color: #f39c12; }
+        .gallery-item { overflow: hidden; height: 400px; background: #000; border: 1px solid #111; position: relative; }
         .gallery-item img, .gallery-item iframe { width: 100%; height: 100%; object-fit: cover; border: none; cursor: zoom-in; }
 
-        footer { padding: 80px 5%; background: #000; text-align: center; border-top: 1px solid #1a1a1a; }
-        .footer-logo { font-family: 'Great Vibes', cursive; font-size: 50px; color: #f39c12; margin-bottom: 20px; }
+        footer { padding: 60px 5%; background: #000; text-align: center; border-top: 1px solid #1a1a1a; }
+        .footer-logo { font-family: 'Great Vibes', cursive; font-size: 45px; color: #f39c12; }
         .social-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 30px; }
-        
-        .social-btn { 
-            text-decoration: none; color: #fff; padding: 12px 30px; border-radius: 2px;
-            font-weight: bold; transition: 0.3s; font-size: 12px; letter-spacing: 1px;
-            display: flex; align-items: center; gap: 8px; border: 1px solid #333;
-        }
-        .btn-wa { background: #128c7e; border-color: #128c7e; }
-        .btn-insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border: none; }
-        .btn-fb { background: #1877F2; border-color: #1877F2; }
-        .btn-call { border-color: #f39c12; color: #f39c12; }
-
-        @media (max-width: 768px) { .hero h1 { font-size: 35px; } .logo { font-size: 35px; } }
+        .social-btn { text-decoration: none; color: #fff; padding: 10px 25px; font-weight: bold; font-size: 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; }
+        .btn-wa { background: #128c7e; }
+        .btn-insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .btn-fb { background: #1877F2; }
+        .btn-call { background: #f39c12; color: #000; }
     </style>
 </head>
 <body>
@@ -91,26 +79,42 @@
     </header>
 
     <section class="hero">
-        <h1>Cinematic Stories<br>Told With Love</h1>
-        <a href="#portfolio" class="hero-btn">View Our Diary</a>
+        <h1 style="font-family: 'Cinzel', serif;">Telling Your Story<br>Through Our Lens</h1>
+        <a href="#portfolio" style="padding: 15px 35px; background: #f39c12; color: #000; text-decoration: none; font-weight: bold; text-transform: uppercase;">View Portfolio</a>
+    </section>
+
+    <section class="section-padding">
+        <div class="story-row">
+            <div class="story-img"><img src="wedding1.jpg" onerror="this.src='https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800'"></div>
+            <div class="story-content">
+                <h2>Wedding Stories</h2>
+                <p>Capturing the essence of your most beautiful day with royal and cinematic visuals.</p>
+            </div>
+        </div>
+        <div class="story-row">
+            <div class="story-img"><img src="pre1.jpg" onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?w=800'"></div>
+            <div class="story-content">
+                <h2>Pre-Wedding</h2>
+                <p>Timeless moments captured in breathtaking locations to celebrate your love journey.</p>
+            </div>
+        </div>
     </section>
 
     <section id="portfolio" class="portfolio-section">
-        <h2 style="font-family: 'Cinzel', serif; color:#f39c12; margin-bottom: 50px; font-size: 35px; letter-spacing: 5px;">THE PORTFOLIO</h2>
+        <h2 style="font-family: 'Cinzel', serif; color:#f39c12; margin-bottom: 40px; font-size: 30px; letter-spacing: 3px;">PORTFOLIO</h2>
         <div class="filters">
             <button class="filter-btn active" onclick="changeCategory('all', this)">Everything</button>
             <button class="filter-btn" onclick="changeCategory('wedding', this)">Wedding</button>
             <button class="filter-btn" onclick="changeCategory('pre', this)">Pre-Wedding</button>
-            <button class="filter-btn" onclick="changeCategory('eng', this)">Engagement</button>
             <button class="filter-btn" onclick="changeCategory('haldi', this)">Haldi</button>
             <button class="filter-btn" onclick="changeCategory('meh', this)">Mehndi</button>
+            <button class="filter-btn" onclick="changeCategory('birth', this)">Birthday</button>
         </div>
         <div class="gallery-grid" id="gallery"></div>
     </section>
 
     <footer>
         <div class="footer-logo">Wedora Weddings</div>
-        <p style="color:#888; letter-spacing: 2px;">Capturing your most precious moments since 2026</p>
         <p style="color:#f39c12; margin-top: 10px; font-weight: bold;">+91 8826540642</p>
         <div class="social-links">
             <a href="tel:+918826540642" class="social-btn btn-call"><i class="fas fa-phone"></i> CALL</a>
@@ -118,13 +122,14 @@
             <a href="https://www.instagram.com/wedora_weddings.1" target="_blank" class="social-btn btn-insta"><i class="fab fa-instagram"></i> INSTAGRAM</a>
             <a href="https://www.facebook.com/share/1BDmxtijCS/" target="_blank" class="social-btn btn-fb"><i class="fab fa-facebook-f"></i> FACEBOOK</a>
         </div>
-        <p style="margin-top: 60px; color:#444; font-size: 10px; letter-spacing: 3px;">© 2026 WEDORA WEDDINGS | NEW DELHI</p>
+        <p style="margin-top: 40px; color:#444; font-size: 10px;">© 2026 WEDORA WEDDINGS</p>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <script>
-        const counts = { wedding: 5, pre: 23, eng: 2, haldi: 1, meh: 1, corp: 1 };
+        // Photo counts yahan se manage karein
+        const counts = { wedding: 5, pre: 23, haldi: 1, meh: 1, birth: 1 };
         const videos = [ { id: "7sUVsH9w1vk", cat: "wedding" } ];
 
         let currentCat = 'all';
@@ -134,14 +139,12 @@
             gallery.innerHTML = '';
             const catsToLoad = currentCat === 'all' ? Object.keys(counts) : [currentCat];
             catsToLoad.forEach(cat => {
-                // Photos
                 for (let i = 1; i <= counts[cat]; i++) {
                     const div = document.createElement('div');
                     div.className = 'gallery-item';
                     div.innerHTML = `<a href="./${cat}${i}.jpg" data-lightbox="gallery-group"><img src="./${cat}${i}.jpg" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'"></a>`;
                     gallery.appendChild(div);
                 }
-                // Videos
                 videos.filter(v => v.cat === cat).forEach(vid => {
                     const div = document.createElement('div');
                     div.className = 'gallery-item';
